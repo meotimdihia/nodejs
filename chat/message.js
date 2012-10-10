@@ -19,14 +19,15 @@ app.action('add', function(req, res){
 		req.on('end', function (){
 			var post = qs.parse(body);
 			if (post.msg != undefined && post.username != undefined ){
-				messages.push({msg: post.msg, username : post.username});
+				var msg = {msg: post.msg, username : post.username, created : new Date()};
+				messages.push(msg);
 		    	while(messages.length > LIMIT){
 		      		messages.shift();
 		  		}
 
 				while(clients.length > 0){
 					var client = clients.pop();
-					client.simpleJSON(200, post);
+					client.simpleJSON(200, msg);
 				}
 			}
 		});
@@ -38,4 +39,8 @@ app.action('add', function(req, res){
 
 app.action('poll', function(req, res){
 	clients.push(res);
+});
+
+app.action('list', function(req, res){
+	res.simpleJSON(200, messages.slice(messages.length - 6));
 });
