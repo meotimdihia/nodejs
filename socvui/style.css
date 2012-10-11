@@ -1,0 +1,110 @@
+/*Common*/
+body {margin:0;padding:0;font-family:"tahoma",verdana,sans-serif;font-size:11px;line-height:1.2em;color:#111}
+* { margin:0; padding:0; }
+a img { border:0; }
+a {color:#0a67b4;text-decoration:none}
+a:hover {color:#333;text-decoration:none}
+:focus { outline: 0; }
+ol, ul { list-style: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; }
+blockquote, q { quotes: "" ""; }
+.alignright { float:right!important; }
+.alignleft { float:left; }
+.alignnone { height:0px; font-size:0px; clear:both; line-height:0px; }
+.v-middle {vertical-align:middle;}
+.spacer { height:12px; font-size:0px; clear:both; line-height:0px; }
+.spacer5px { height:5px; font-size:0px; clear:both; line-height:0px; }
+.spacer2px { height:2px; font-size:0px; clear:both; line-height:0px; }
+.v-middle {vertical-align:middle;}
+.clearfix:after{content:".";display:block;clear:both;visibility:hidden;line-height:0;height:0;} 
+.clearfix{display:inline-block;} 
+* html > body .clearfix{width: 100%;display: block;} 
+html[xmlns] .clearfix{display:block;} 
+* html .clearfix{height:1%;}
+
+#header {background:#fff;height:70px;}
+div#container{width:960px;margin:0 auto}
+div#content{background:#a8d1e0;float:left;width:710px;height:1000px}
+div#footer{clear:both;width:100%;padding: 20px 0;border-top:solid 1px #a8d1e0}
+.sidebar {background:#fff;float:left;width:100%;height:500px; margin: 0px;}
+
+/*Chat*/
+ul.tab-menu {border-bottom:solid 1px #a8d1e0;padding-left:10px}
+ul.tab-menu > li.tab-item {display:inline}
+ul.tab-menu > li.tab-item > a {background:#fff;border:solid 1px #e9e9e9;border-bottom:medium none;display:block;color:#111;font-family:tahoma;font-size:13px;font-weight:bold;padding: 5px 10px 4px;text-decoration:none;float:left;margin-right:5px;position:relative;}
+ul.tab-menu > li.tab-active > a {border-color:#a8d1e0;border-top-width:3px;border-bottom-color:#fff;padding-top:3px;bottom:-1px}
+ul.tab-menu > li.tab-item > a:hover {border-color:#a8d1e0}
+
+.tab-content {margin:10px 0 0;}
+.chat-container {border:solid 1px #cbcbcb;margin:10px 0;}
+
+#add_friend {margin:0}
+#chat ul.data-list {height:295px;overflow-y:auto;padding-top: 0px;}
+ul.data-list > li.data-chat {padding:8px;border-bottom:solid 1px #eaeaea;}
+ul.data-list > li.data-chat:firt-child {border-top:medium none}
+ul.data-list > li.data-request {border-bottom:solid 1px #eaeaea;padding:8px 0}
+ul.data-list > li.data-request a.response {color:#ed1c24}
+ul.data-list > li.data-request a.response:hover {color:#fc0009}
+ul.data-list > li.data-request .request-content {color:#808080;margin-bottom:3px}
+.kt-right a.response {color:#ed1c24};
+.kt-box {}
+.kt-box .kt-left {float:left;width:32px}
+.kt-box .kt-right {padding-left:40px}
+.kt-box h6 {font-size:11px;margin-bottom:3px}
+.time {color:#808080;font-weight:normal}
+.input-text {border:solid 1px #cacaca;color:#808080;font-family:"tahoma",verdana,sans-serif;font-size:11px;padding:3px;}
+.chat-input .input-text {width:94%;height:24px}
+.chat-input .login {font-weight:bold;padding: 10px 0;text-align:center}
+.tip {font-size:11px;font-weight:bold}
+.tip img {vertical-align:middle}
+
+.mes-admin{
+	color:#FF4040;
+	padding: 3px;
+	margin: 5px 0;
+}
+
+.pagination {
+	color:#949494;
+	padding: 3px;
+	margin: 10px 0;
+	text-align:center;
+}
+
+.pagination a {
+	background:#fff none;
+	border: 1px solid #ddd;
+	color: #949494;
+	padding: 1px 5px 1px 5px;
+	margin: 2px;
+	text-decoration: none; /* no underline */
+	-webkit-border-radius: 2px;-khtml-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;
+}
+
+.pagination a:hover,
+.pagination a:active {
+	background:#f0f5f8 none;
+	border: 1px solid #a8d1e0;
+	color: #000;
+}
+.pagination .current {
+	background:#f0f5f8 none;
+	border: 1px solid #a8d1e0;
+	color: #000;
+	padding: 1px 5px 1px 5px;
+	margin: 2px;
+	-webkit-border-radius: 2px;-khtml-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;
+}
+.pagination .disabled {
+	padding: 1px 5px 1px 5px;
+	margin: 2px;
+	border: 1px solid #EEE;
+	color: #DDD;
+	-webkit-border-radius: 2px;-khtml-border-radius: 2px;-moz-border-radius: 2px;border-radius: 2px;
+}
+
+
+
+::-webkit-scrollbar {height:10px;width:10px;background:#eee}
+::-webkit-scrollbar-thumb {background:#ccc;-webkit-border-radius:3px;-webkit-box-shadow:0px 1px 1px #bbb}
+::-webkit-scrollbar-corner {background:#ccc}

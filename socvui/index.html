@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<script type="text/javascript">
+var currentTime = new Date().getTime();
+document.write('<link rel="stylesheet" href="http://sohagame.vcmedia.vn/css/style_chat.css?v='+ currentTime +'" type="text/css"/>')
+</script>
+   <script type="text/javascript" src="http://sohagame.vcmedia.vn/js/jquery-1.6.1.min.js"></script>
+    <script src="http://sohagame.vcmedia.vn/js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="http://sohagame.vcmedia.vn/js/jquery.tinyscrollbar.js" type="text/javascript"></script>
+    <script src="7kiem/client.js" type="text/javascript"></script>
+    <title>Soha Irc</title>
+<script type="text/javascript">
+   
+	//Check session
+    $.getScript("http://soap.soha.vn/dialog/Authen/Checksession4chat");
+    function mingAuthCallBack(data){
+        var rels = eval('(' + data + ')');
+        if(rels!=null){
+            //make the actual join request to the server
+            $.ajax({ cache: false
+           , type: "GET" // XXX should be POST
+           , dataType: "json"
+           , url: "/7kiem/join"
+           , data: { nick: rels.username,user_id: rels.id,user_email: rels.email,checksum: rels.checksum,status: rels.status}
+           , error: function () {
+                    showConnect();
+             }
+           ,success: function(data1){
+                    if(data1.error == 'nicknull'){
+                        $("#connect").html('Mất kết nối box chat, xin vui lòng Ctrl+F5!').show();
+                    }else if(data1.error == 'badnick'){
+                        $("#connect").html('Có lỗi xảy ra, xin vui lòng Ctrl+F5!').show();
+                    }else if(data1.error == 'notactive'){
+                        $("#connect").html('Tài khoản của bạn chưa kích hoạt!').show();
+                    }else if(data1.error == 'sessionnull'){
+                        $("#connect").html('Mất kết nối box chat, xin vui lòng Ctrl+F5!').show();
+                    }else if(data1.error == 'badnickemail'){
+                        $("#connect").html('Có lỗi xảy ra, xin vui lòng Ctrl+F5!').show();
+                    }else{
+                        onConnect(data1);
+                    }
+            }
+           });
+        }else{
+            $("#connect").html('Đăng nhập tài khoản để Chat!').show();
+        }
+    }
+
+</script>
+</head>
+<body>
+<div id="chat">
+		 <div class="mes-admin" id="mess_admin" style="display: none;"></div>
+		 <div id="loading"><p>loading...</p></div>
+		 <div class="chat-input" id="modalDiv">
+			<div class="kt-box" id="toolbar">
+			
+				<div class="input-grp">
+					<input maxlength="150"  class="input-text" id="entry" name="chat_input_text" cols="15" rows="3" onfocus="if(this.value=='Chat tại đây...'){this.value='';}" onblur="if(this.value==''){this.value='Chat tại đây...';}" value="Chat tại đây..."/>
+				</div>
+			</div>
+			<div class="login" id="connect" style="color: red;display: none;">
+				Mất kết nối box chat, xin vui lòng Ctrl+F5!
+			</div>
+			 <div class="login" id="login" style="color: red;display: none;">
+				Đăng nhập tài khoản để chat.
+			</div>
+		</div>
+		<div class="chat-container" >
+            <div id="ticker_panel" class="block-ticker">
+                <div id="ticker_top" class="ticker-top scroll-disable" title="Lên đầu trang">
+                    <div class="ticker-top-inner">
+                        ▲
+                    </div>
+                </div>
+                <div class="ticker-scrollbar">
+                    <div class="ticker-track">
+                        <div class="ticker-thumb"></div>
+                    </div>
+                </div>
+                <div class="ticker-content-box">
+                    <div id="ticker_content" class="ticker-content">
+                    <ul class="data-list" id="log">
+                    <!--content se load ra bang js -->
+                    </ul>
+                    </div>
+                </div>
+            </div>
+		</div><!-- end chat-container -->	</div><!-- end tab-content -->
+</body>
+</html>
